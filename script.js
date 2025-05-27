@@ -93,13 +93,15 @@ function calculateMortgage() {
     const interestRate = Number(rate.value);
 
     const monthlyMortgageTerm = mortgageTerm * 12;
-    const monthlyInterestRate = interestRate / 100 / 12; 
+    const monthlyInterestRate = interestRate / 100 / 12;
+    
+    let firstAnswer, secondAnswer;
 
     if (repayment.checked) {
         var numerator = monthlyInterestRate * ((1 + monthlyInterestRate) ** monthlyMortgageTerm);
         var denominator = ((1 + monthlyInterestRate) ** monthlyMortgageTerm) - 1; 
-        var firstAnswer = mortgageAmount * (numerator / denominator);
-        var secondAnswer = firstAnswer * monthlyMortgageTerm;
+        firstAnswer = mortgageAmount * (numerator / denominator);
+        secondAnswer = firstAnswer * monthlyMortgageTerm;
         
         monthlyRepayment.innerText = firstAnswer.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         termRepayment.innerText = secondAnswer.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -109,8 +111,8 @@ function calculateMortgage() {
     }
 
     if (interestOnly.checked) {
-        var firstAnswer = mortgageAmount * monthlyInterestRate;
-        var secondAnswer = firstAnswer * monthlyMortgageTerm;
+        firstAnswer = mortgageAmount * monthlyInterestRate;
+        secondAnswer = firstAnswer * monthlyMortgageTerm;
 
         monthlyRepayment.innerText = firstAnswer.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         termRepayment.innerText = secondAnswer.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
