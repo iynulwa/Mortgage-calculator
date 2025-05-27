@@ -332,6 +332,7 @@ h2 {
 
 .completed-state {
     display: none;
+    padding: 1.5rem;
 }
 
 .completed-state > div {
