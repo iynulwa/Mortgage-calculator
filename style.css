@@ -364,7 +364,7 @@ hr {
 }
 
 
-@media (min-width: 675px){
+@media (min-width: 700px){
     main {
         background-color: var(--clr--white);
         max-width: 55rem;
@@ -386,6 +386,11 @@ hr {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .input-div {
+        display: flex;
+        gap: 1rem;
     }
 
     .data {
